@@ -45,7 +45,7 @@ func cancelRegistration(context *gin.Context) {
 	var event models.Event
 	event.ID = eventId
 
-	event.CancelRegistration(userId)
+	err = event.CancelRegistration(userId)
 
 	if err != nil {
 		context.JSON(http.StatusInternalServerError, gin.H{"message": "Could not cancel registration."})
